@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerGroundedState
+public class PlayerGroundedState : PlayerState
 {
-    public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    public PlayerGroundedState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
 
@@ -22,7 +22,8 @@ public class PlayerIdleState : PlayerGroundedState
     {
         base.Update();
 
-        if(xInput != 0)
-            stateMachine.ChangeState(player.moveState);
+        if (Input.GetKeyDown(KeyCode.Space))
+            stateMachine.ChangeState(player.jumpState);
     }
+
 }
