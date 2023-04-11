@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     public PlayerJumpState jumpState { get; private set; }
     public PlayerAirState airState { get; private set; }
     public PlayerWallSlideState wallSlide { get; private set; }
+    public PlayerWallJumpState wallJump { get; private set; }
     public PlayerDashState dashState { get; private set; }
 
     #endregion
@@ -55,8 +56,9 @@ public class Player : MonoBehaviour
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         airState  = new PlayerAirState(this, stateMachine, "Jump");
-        wallSlide  = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
+        wallSlide  = new PlayerWallSlideState(this, stateMachine, "WallSlide");
+        wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
     }
 
     private void Start()
@@ -78,6 +80,9 @@ public class Player : MonoBehaviour
 
     private void CheckForDashInput()
     {
+        if(IsWallDetected())
+            return;
+            
         dashUsageTimer -= Time.deltaTime;
 
         if(Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTimer < 0)
