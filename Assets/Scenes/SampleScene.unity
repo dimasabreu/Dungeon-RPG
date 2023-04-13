@@ -328,7 +328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857862020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21, y: -2.4, z: 0}
+  m_LocalPosition: {x: 0.24, y: -1.95, z: 0}
   m_LocalScale: {x: 23.800133, y: 1.0972, z: 1.0972}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -348,11 +348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 448394532487125710, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.32
+      value: -1.83
       objectReference: {fileID: 0}
     - target: {fileID: 448394532487125710, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.22
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 448394532487125710, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
       propertyPath: m_LocalPosition.z
@@ -389,6 +389,46 @@ PrefabInstance:
     - target: {fileID: 448394532487125744, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[0].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[0].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[1].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[1].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[2].x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 448394532487125745, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+      propertyPath: attackMovement.Array.data[2].y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
