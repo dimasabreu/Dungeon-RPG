@@ -9,9 +9,9 @@ public class EnemyState
     protected Enemy enemy;
 
      private string animBoolName;
+    protected float stateTimer;
 
     protected bool triggerCalled;
-    protected float stateTimer;
 
     public EnemyState(Enemy _enemy, EnemyStateMachine _stateMachine, string _animBoolName)
     {
