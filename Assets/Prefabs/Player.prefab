@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 448394532212935566}
   - component: {fileID: 448394532212935564}
   - component: {fileID: 448394532212935567}
-  m_Layer: 0
+  - component: {fileID: 79855779}
+  m_Layer: 6
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1404915967
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,6 +107,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &79855779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448394532212935601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7345c3fea74bfba40a27f829d7d890ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &448394532487125744
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +131,7 @@ GameObject:
   - component: {fileID: 448394532487125745}
   - component: {fileID: 448394532487125708}
   - component: {fileID: 448394532487125711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,11 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abba515ff99e24946a8f784f68c2a397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
-  jumpForce: 12
-  dashCooldown: 1
-  dashSpeed: 25
-  dashDuration: 0.2
   groundCheck: {fileID: 448394533435527019}
   groundCheckDistance: 0.15
   wallCheck: {fileID: 448394533836464112}
@@ -167,6 +175,15 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  attackMovement:
+  - {x: 2, y: 1}
+  - {x: 1, y: 1}
+  - {x: 4, y: 2}
+  moveSpeed: 12
+  jumpForce: 12
+  dashCooldown: 1
+  dashSpeed: 25
+  dashDuration: 0.2
 --- !u!70 &448394532487125708
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -213,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448394533435527019}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448394533836464112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
