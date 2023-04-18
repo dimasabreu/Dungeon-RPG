@@ -9,6 +9,7 @@ public class EnemySkeleton : Enemy
     public SkeletonIdleState idleState { get; private set; }
     public SkeletonMoveState moveState { get; private set; }
     public SkeletonBattleState battleState { get; private set; }
+    public SkeletonAttackState attackState { get; private set; }
 
     #endregion
     protected override void Awake()
@@ -18,6 +19,7 @@ public class EnemySkeleton : Enemy
         idleState = new SkeletonIdleState(this, stateMachine, "Idle", this);
         moveState = new SkeletonMoveState(this, stateMachine, "Move", this);
         battleState = new SkeletonBattleState(this, stateMachine, "Move", this);
+        attackState = new SkeletonAttackState(this, stateMachine, "Attack", this);
     }
 
     protected override void Start()
