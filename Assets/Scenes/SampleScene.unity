@@ -846,6 +846,11 @@ Transform:
   m_Father: {fileID: 1866974982}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &962874135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 448394532487125744, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
+  m_PrefabInstance: {fileID: 448394532267297582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1025446474
 GameObject:
   m_ObjectHideFlags: 0
@@ -12282,6 +12287,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 448394532487125710, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
   m_PrefabInstance: {fileID: 448394532267297582}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1657012004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962874135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65b93510fbaa664cb6976958ce7c13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMat: {fileID: 2100000, guid: 79064aeff26fbee409f972e5fc4b8ed9, type: 2}
 --- !u!1 &1660982737
 GameObject:
   m_ObjectHideFlags: 0
@@ -12306,7 +12324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660982737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4, y: -0.26, z: 0}
+  m_LocalPosition: {x: 1.09, y: -0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13190,6 +13208,7 @@ GameObject:
   - component: {fileID: 1866974981}
   - component: {fileID: 1866974984}
   - component: {fileID: 1866974983}
+  - component: {fileID: 1866974985}
   m_Layer: 7
   m_Name: EnemySkeleton
   m_TagString: Untagged
@@ -13210,7 +13229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCheck: {fileID: 1660982738}
-  attackCheckRadius: 0.8
+  attackCheckRadius: 1.2
   groundCheck: {fileID: 955414576}
   groundCheckDistance: 0.4
   wallCheck: {fileID: 61624863}
@@ -13293,6 +13312,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1866974985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866974980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65b93510fbaa664cb6976958ce7c13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMat: {fileID: 2100000, guid: 79064aeff26fbee409f972e5fc4b8ed9, type: 2}
 --- !u!1001 &448394532267297582
 PrefabInstance:
   m_ObjectHideFlags: 0
