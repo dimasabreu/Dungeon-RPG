@@ -12324,7 +12324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660982737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.09, y: -0.28, z: 0}
+  m_LocalPosition: {x: 0.79, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13228,8 +13228,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c446e4e2e9c0264b95957c33ca02764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackDirection: {x: 7, y: 12}
+  knockbackDuration: 0.07
   attackCheck: {fileID: 1660982738}
-  attackCheckRadius: 1.2
+  attackCheckRadius: 0.8
   groundCheck: {fileID: 955414576}
   groundCheckDistance: 0.4
   wallCheck: {fileID: 61624863}
@@ -13306,7 +13308,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 12
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
