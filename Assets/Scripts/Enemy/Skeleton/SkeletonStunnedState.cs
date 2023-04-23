@@ -2,17 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonStunnedState : MonoBehaviour
+public class SkeletonStunnedState : EnemyState
 {
-    // Start is called before the first frame update
-    void Start()
+    private EnemySkeleton enemy;
+    public SkeletonStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName, EnemySkeleton _enemy) : base(_enemyBase, _stateMachine, _animBoolName)
     {
-        
+        this.enemy = _enemy;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+        base.Enter();
+
+        stateTimer = enemy.stunDuration;
+
+        rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if(stateTimer < 0)
+            stateMachine.ChangeState(enemy.idleState);
     }
 }
