@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 448394532487125745}
   - component: {fileID: 448394532487125708}
   - component: {fileID: 448394532487125711}
+  - component: {fileID: 1657012004}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -200,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abba515ff99e24946a8f784f68c2a397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackDirection: {x: 0, y: 0}
+  knockbackDuration: 0
   attackCheck: {fileID: 1149425716}
   attackCheckRadius: 0.8
   groundCheck: {fileID: 448394533435527019}
@@ -255,6 +258,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1657012004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448394532487125744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65b93510fbaa664cb6976958ce7c13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMat: {fileID: 2100000, guid: 79064aeff26fbee409f972e5fc4b8ed9, type: 2}
 --- !u!1 &448394533435527018
 GameObject:
   m_ObjectHideFlags: 0
