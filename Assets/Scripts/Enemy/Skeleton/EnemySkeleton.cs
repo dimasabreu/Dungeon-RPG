@@ -39,4 +39,14 @@ public class EnemySkeleton : Enemy
             stateMachine.ChangeState(stunnedState);
         }
     }
+
+    protected override bool CanBeStunned()
+    {
+        if(base.CanBeStunned())
+        {
+            stateMachine.ChangeState(stunnedState);
+            return true;
+        }
+        return false;
+    }
 }
