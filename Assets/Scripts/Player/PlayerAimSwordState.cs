@@ -27,5 +27,8 @@ public class PlayerAimSwordState : PlayerState
         
         if(Input.GetKeyUp(KeyCode.Mouse1))
             stateMachine.ChangeState(player.idleState);
+        
     }
+
+
 }

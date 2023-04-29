@@ -38,6 +38,8 @@ public class PlayerState
         yInput = Input.GetAxisRaw("Vertical");
 
         player.anim.SetFloat("yVelocity", rb.velocity.y);
+
+        PlayerLookDiretion();
     }
 
     public virtual void Exit()
@@ -49,5 +51,15 @@ public class PlayerState
     public virtual void AnimationFinishTrigger()
     {
         triggerCalled = true;
+    }
+
+    private void PlayerLookDiretion()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if(player.transform.position.x > mousePosition.x && player.facingDir == 1)
+            player.Flip();
+        else if(player.transform.position.x < mousePosition.x && player.facingDir == -1)
+            player.Flip();
     }
 }

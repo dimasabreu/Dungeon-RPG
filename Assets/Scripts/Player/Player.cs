@@ -37,6 +37,7 @@ public class Player : Entity
     public PlayerCatchSwordState catchSword { get; private set; }
 
     #endregion
+    
     protected override void Awake() 
     {
 
@@ -81,8 +82,9 @@ public class Player : Entity
         sword = _newSword;
     }
 
-    public void ClearTheSword()
+    public void CatchTheSword()
     {
+        stateMachine.ChangeState(catchSword);
         Destroy(sword);
     }
 
