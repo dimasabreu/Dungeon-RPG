@@ -51,6 +51,9 @@ public class PlayerPrimaryAttackState : PlayerState
 
         if(triggerCalled)
             stateMachine.ChangeState(player.idleState);
+
+        PlayerLookDiretion();
     }
+    
     
 }

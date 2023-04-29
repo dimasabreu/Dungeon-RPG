@@ -39,7 +39,6 @@ public class PlayerState
 
         player.anim.SetFloat("yVelocity", rb.velocity.y);
 
-        PlayerLookDiretion();
     }
 
     public virtual void Exit()
@@ -53,7 +52,7 @@ public class PlayerState
         triggerCalled = true;
     }
 
-    private void PlayerLookDiretion()
+    public virtual void PlayerLookDiretion()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
