@@ -14,10 +14,11 @@ public class Sword_Skill_Controller : MonoBehaviour
     private bool isReturning;
     
 
-    public float bouncingSpeed;
-    public bool isBouncing = true;
-    public int amountOfBounce = 4;
-    public List<Transform> enemyTarget;
+    [Header("Bouncing info")]
+    [SerializeField] private float bouncingSpeed;
+    private bool isBouncing;
+    private int amountOfBounce;
+    private List<Transform> enemyTarget;
     private int targetIndex;
 
     private void Awake() 
@@ -37,6 +38,13 @@ public class Sword_Skill_Controller : MonoBehaviour
         anim.SetBool("Rotation", true);
     }
 
+    public void SetupBounce(bool _isBouncing, int _amountOfBounces)
+    {
+        isBouncing = _isBouncing;
+        amountOfBounce = _amountOfBounces;
+
+        enemyTarget = new List<Transform>();
+    }
     public void ReturnSword()
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -44,40 +52,45 @@ public class Sword_Skill_Controller : MonoBehaviour
         isReturning = true;
     }
 
-    private void Update() 
+    private void Update()
     {
-        if(canRotate)
+        if (canRotate)
             transform.right = rb.velocity;
 
-        if(isReturning)
+        if (isReturning)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
 
-            if(Vector2.Distance(transform.position, player.transform.position) < 1)
+            if (Vector2.Distance(transform.position, player.transform.position) < 1)
                 player.CatchTheSword();
         }
 
-        if(isBouncing && enemyTarget.Count > 0)
+        BounceLogic();
+
+    }
+
+    private void BounceLogic()
+    {
+        if (isBouncing && enemyTarget.Count > 0)
         {
             transform.position = Vector2.MoveTowards(transform.position, enemyTarget[targetIndex].position, bouncingSpeed * Time.deltaTime);
 
-            if(Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
+            if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
             {
                 targetIndex++;
                 amountOfBounce--;
 
-                if(amountOfBounce <= 0)
+                if (amountOfBounce <= 0)
                 {
                     isBouncing = false;
                     isReturning = true;
                 }
 
-                if(targetIndex >= enemyTarget.Count)
+                if (targetIndex >= enemyTarget.Count)
                     targetIndex = 0;
             }
 
         }
-            
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
