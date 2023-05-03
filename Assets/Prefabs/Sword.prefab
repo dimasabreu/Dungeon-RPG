@@ -116,8 +116,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4457666907167817648}
   - component: {fileID: 951246744628836382}
-  - component: {fileID: 638901683641063142}
   - component: {fileID: 1407077147685781309}
+  - component: {fileID: 4988086008801003094}
   m_Layer: 8
   m_Name: Sword
   m_TagString: Untagged
@@ -162,7 +162,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &638901683641063142
+--- !u!114 &1407077147685781309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8698912419693675771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259ca9e311c9d02418bd300d4d159c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnSpeed: 12
+  pierceAmount: 0
+  bouncingSpeed: 20
+--- !u!58 &4988086008801003094
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,21 +192,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &1407077147685781309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698912419693675771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259ca9e311c9d02418bd300d4d159c51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  returnSpeed: 12
-  bouncingSpeed: 20
-  isBouncing: 1
-  amountOfBounce: 4
-  enemyTarget: []
+  m_Radius: 0.35
