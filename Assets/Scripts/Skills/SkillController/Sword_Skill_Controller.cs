@@ -26,7 +26,7 @@ public class Sword_Skill_Controller : MonoBehaviour
     [Header("Spin info")]
     private float maxTravelDistance;
     private float spinDuration;
-    private float spinTimer;
+    [SerializeField] private float spinTimer;
     private bool wasStopped;
     private bool isSpinning;
 
@@ -107,25 +107,17 @@ public class Sword_Skill_Controller : MonoBehaviour
             {
                 StopWhenSpinning();
             }
-
+            
             if (wasStopped)
             {
                 spinTimer -= Time.deltaTime;
-
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + spinDirection, transform.position.y), 1.5f * Time.deltaTime);
-
-                if(Vector2.Distance(player.transform.position, transform.position) > maxTravelDistance * 1.5f && wasStopped)
-                {
-                    isReturning = true;
-                    isSpinning = false;
-                }
-
-                
                 if (spinTimer < 0)
                 {
                     isReturning = true;
                     isSpinning = false;
                 }
+                
 
                 hitTimer -= Time.deltaTime;
 
@@ -134,7 +126,6 @@ public class Sword_Skill_Controller : MonoBehaviour
                     hitTimer = hitCooldown;
 
                     Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1);
-
                     foreach (var hit in colliders)
                     {
                         if (hit.GetComponent<Enemy>() != null)
@@ -152,6 +143,7 @@ public class Sword_Skill_Controller : MonoBehaviour
         spinTimer = spinDuration;
     }
 
+    
     private void BounceLogic()
     {
         if (isBouncing && enemyTarget.Count > 0)
@@ -184,9 +176,11 @@ public class Sword_Skill_Controller : MonoBehaviour
             return;
 
         collision.GetComponent<Enemy>()?.Damage();
+        
         SetupTargetsForBounce(collision);
 
         StuckInto(collision);
+
     }
 
     private void SetupTargetsForBounce(Collider2D collision)
@@ -216,7 +210,6 @@ public class Sword_Skill_Controller : MonoBehaviour
 
         if(isSpinning)
         {
-            StopWhenSpinning();
             return;
         }
 
