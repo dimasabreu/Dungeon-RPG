@@ -1497,10 +1497,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotKeyPrefab: {fileID: 730870590}
-  keyCodeList: 7100000063000000650000007200000074000000
+  keyCodeList: 7100000077000000730000006100000064000000
   maxSize: 15
   growSpeed: 1
+  shrinkSpeed: 3
   canGrow: 0
+  canShrink: 0
+  amountOfAttacks: 4
+  cloneAttackCooldown: 0.3
 --- !u!212 &1204468462
 SpriteRenderer:
   m_ObjectHideFlags: 0
