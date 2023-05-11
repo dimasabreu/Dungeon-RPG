@@ -32,7 +32,6 @@ public class PlayerBlackholeState : PlayerState
         base.Exit();
 
         player.rb.gravityScale = defaultGravity;
-
         player.MakeTransparent(false);
     }
 
@@ -55,8 +54,7 @@ public class PlayerBlackholeState : PlayerState
 
         }
 
-        ///////////////////////////////////////////////////////////////////////////////////
-        // we exit the state in blackhole skill controller when all the attacks are over.//
-       ///////////////////////////////////////////////////////////////////////////////////
+        if(player.skill.blackHole.SkillCompleted())
+            stateMachine.ChangeState(player.airState);
     }
 }
