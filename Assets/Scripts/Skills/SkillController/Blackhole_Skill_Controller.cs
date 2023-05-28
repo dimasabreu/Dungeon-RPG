@@ -18,7 +18,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     private bool cloneAttackReleased;
     private bool playerCanDisapear = true;
 
-    private int amountOfAttacks = 4;
+    private int amountOfAttacks;
     private float cloneAttackCooldown = .3f;
     private float cloneAttackTimer;
     
@@ -35,6 +35,10 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         shrinkSpeed = _shrinkSpeed;
         cloneAttackCooldown = _cloneAttackCooldown;
         blackholeTimer = _blackholeDuration;
+        amountOfAttacks = _amountOfAttacks;
+
+        if(SkillManager.instance.clone.crystalInsteadOfClone)
+            playerCanDisapear = false;
     }
 
 
@@ -104,9 +108,19 @@ public class Blackhole_Skill_Controller : MonoBehaviour
                 xOffset = 1.5f;
             else
                 xOffset = -1.5f;
-            SkillManager.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+
+            if(SkillManager.instance.clone.crystalInsteadOfClone)
+            {
+                SkillManager.instance.crystal.CreateCrystal();
+                SkillManager.instance.crystal.currentCrystalChooseRandomTarget();
+            }
+            else
+            {
+                SkillManager.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+            }
 
             amountOfAttacks--;
+
             if (amountOfAttacks <= 0)
             {
                 Invoke("FinishBlackHoleAbility", 1f);
