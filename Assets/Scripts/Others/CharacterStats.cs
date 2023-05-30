@@ -6,14 +6,18 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
 
-    public int damage;
-    public int maxHealth;
+    public Stats damage;
+    public Stats maxHealth;
+
+    
 
     [SerializeField] private int currentHealth;
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth.GetValue();
+        //example
+        damage.AddModifier(4);
     }
 
     public void TakeDamage(int _damage)
