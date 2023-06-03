@@ -13596,26 +13596,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3052705886872121513, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
-      propertyPath: damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052705886872121513, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052705886872121513, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
-      propertyPath: currentHealth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052705886872121513, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
-      propertyPath: damage.baseValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3052705886872121513, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
-      propertyPath: maxHealth.baseValue
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
 --- !u!1001 &653640016889803160
@@ -13672,18 +13652,6 @@ PrefabInstance:
     - target: {fileID: 653640016307009182, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547868662790574353, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
-      propertyPath: currentHealth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547868662790574353, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
-      propertyPath: damage.baseValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547868662790574353, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
-      propertyPath: maxHealth.baseValue
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
