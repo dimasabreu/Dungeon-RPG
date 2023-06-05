@@ -8,6 +8,9 @@ public class CharacterStats : MonoBehaviour
     public Stats intelligence;  // 1 point increase magic damage by 1 and magica resistance by 3
     public Stats vitality;      // 1 point increase health by 3 or 5 points.
 
+    [Header("Offensive stats")]
+
+
     [Header("Defensive stats")]
     public Stats maxHealth;
     public Stats armor;
