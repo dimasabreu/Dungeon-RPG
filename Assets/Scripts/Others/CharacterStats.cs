@@ -18,8 +18,18 @@ public class CharacterStats : MonoBehaviour
     public Stats maxHealth;
     public Stats armor;
     public Stats evasion; 
+    public Stats magicResistance;
 
+    [Header("Defensive stats")]
+    public Stats fireDamage;
+    public Stats iceDamage;
+    public Stats lightingDamage;
     
+
+    public bool isIgnited;
+    public bool isChilled;
+    public bool isShocked;
+
 
     [SerializeField] private int currentHealth;
     // Start is called before the first frame update
@@ -44,9 +54,38 @@ public class CharacterStats : MonoBehaviour
                     
         
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
-        _targetStats.TakeDamage(totalDamage);
+        //_targetStats.TakeDamage(totalDamage);
+        DoMagicalDamage(_targetStats);
     }
 
+    public virtual void DoMagicalDamage(CharacterStats _targetStats)
+    {
+        int _fireDamage = fireDamage.GetValue();
+        int _iceDamage = iceDamage.GetValue();
+        int _lightingDamage = lightingDamage.GetValue();
+
+        int totalMagicDamage = _fireDamage + _iceDamage + _lightingDamage + intelligence.GetValue();
+
+        totalMagicDamage = CheckTargetResistance(_targetStats, totalMagicDamage);
+        _targetStats.TakeDamage(totalMagicDamage);
+    }
+
+    private static int CheckTargetResistance(CharacterStats _targetStats, int totalMagicDamage)
+    {
+        totalMagicDamage -= _targetStats.magicResistance.GetValue() + (_targetStats.intelligence.GetValue() * 3);
+        totalMagicDamage = Mathf.Clamp(totalMagicDamage, 0, int.MaxValue);
+        return totalMagicDamage;
+    }
+
+    public void ApllyAilments(bool _ignite, bool _chill, bool _shock)
+    {
+        if(isIgnited || isChilled || isShocked)
+            return;
+        
+        isIgnited = _ignite;
+        isChilled = _chill;
+        isShocked = _shock;
+    }
 
     public virtual void TakeDamage(int _damage)
     {
