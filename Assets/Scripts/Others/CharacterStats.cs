@@ -68,6 +68,44 @@ public class CharacterStats : MonoBehaviour
 
         totalMagicDamage = CheckTargetResistance(_targetStats, totalMagicDamage);
         _targetStats.TakeDamage(totalMagicDamage);
+
+        if(Mathf.Max(_fireDamage, _iceDamage, _lightingDamage) <= 0)
+            return;
+
+        bool canApplyIgnite = _fireDamage > _iceDamage && _fireDamage > _lightingDamage; 
+        bool canApplyChill = _iceDamage > _fireDamage && _iceDamage > _lightingDamage;
+        bool canApplyShock = _lightingDamage > _fireDamage && _lightingDamage > _iceDamage;
+
+        while(!canApplyIgnite && !canApplyChill && !canApplyShock)
+        {
+            if(Random.value < .4f && _fireDamage > 0)
+            {
+                canApplyIgnite = true;
+                _targetStats.ApllyAilments(canApplyIgnite, canApplyChill, canApplyShock);
+                Debug.Log("ta pegando fogo bixo");
+                return;
+            }
+
+            if(Random.value < .5f && _iceDamage > 0)
+            {
+                canApplyChill = true;
+                _targetStats.ApllyAilments(canApplyIgnite, canApplyChill, canApplyShock);
+                Debug.Log("gelado");
+                return;
+            }
+
+            if(Random.value < .5f && _lightingDamage > 0)
+            {
+                canApplyShock = true;
+                _targetStats.ApllyAilments(canApplyIgnite, canApplyChill, canApplyShock);
+                Debug.Log("choque do trovao");
+                return;
+            }
+
+            
+        }
+
+        _targetStats.ApllyAilments(canApplyIgnite, canApplyChill, canApplyShock);
     }
 
     private static int CheckTargetResistance(CharacterStats _targetStats, int totalMagicDamage)
