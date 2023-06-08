@@ -26,9 +26,17 @@ public class CharacterStats : MonoBehaviour
     public Stats lightingDamage;
     
 
-    public bool isIgnited;
-    public bool isChilled;
-    public bool isShocked;
+    public bool isIgnited; // fire damage over time
+    public bool isChilled; // reduce armor by 20 %
+    public bool isShocked; // reduce accuracy by 20 %
+
+    private float ignitedTimer;
+    private float chilledTimer;
+    private float shockedTimer;
+
+    private float igniteDamageCooldown = .3f;
+    private float igniteDamageTimer;
+    private int igniteDamage;
 
 
     [SerializeField] private int currentHealth;
@@ -37,6 +45,31 @@ public class CharacterStats : MonoBehaviour
     {
         critPower.SetDefaultValue(150);
         currentHealth = maxHealth.GetValue();
+    }
+
+    protected virtual void Update() 
+    {
+        ignitedTimer -= Time.deltaTime;
+        chilledTimer -= Time.deltaTime;
+        shockedTimer -= Time.deltaTime;
+
+        igniteDamageTimer -= Time.deltaTime;
+
+        if(ignitedTimer < 0)
+            isIgnited = false;
+        if(chilledTimer < 0)
+            isChilled = false;
+        if(shockedTimer < 0)
+            isShocked = false;
+        
+        if(igniteDamageTimer < 0 && isIgnited)
+        {
+            Debug.Log("Take burn damage" + igniteDamage);
+            currentHealth -= igniteDamage;
+            if(currentHealth <= 0)
+                Die();
+            igniteDamageTimer = igniteDamageCooldown;
+        }
     }
 
     public virtual void DoDamage(CharacterStats _targetStats)
@@ -105,6 +138,9 @@ public class CharacterStats : MonoBehaviour
             
         }
 
+        if(canApplyIgnite)
+            _targetStats.SetupIgniteDamage(Mathf.RoundToInt(_fireDamage * .2f));
+
         _targetStats.ApllyAilments(canApplyIgnite, canApplyChill, canApplyShock);
     }
 
@@ -120,10 +156,25 @@ public class CharacterStats : MonoBehaviour
         if(isIgnited || isChilled || isShocked)
             return;
         
-        isIgnited = _ignite;
-        isChilled = _chill;
-        isShocked = _shock;
+        if(_ignite)
+        {
+            isIgnited = _ignite;
+            ignitedTimer = 2;
+        }
+        if(_chill)
+        {   
+            isChilled = _chill;
+            chilledTimer = 2;
+        }
+        if(_shock)
+        {
+            isShocked = _shock;
+            shockedTimer = 2;
+        }
     }
+
+
+    public void SetupIgniteDamage(int _damage) => igniteDamage = _damage;
 
     public virtual void TakeDamage(int _damage)
     {
@@ -142,7 +193,11 @@ public class CharacterStats : MonoBehaviour
     
     private int CheckTargetArmor(CharacterStats _targetStats, int totalDamage)
     {
-        totalDamage -= _targetStats.armor.GetValue();
+        if(_targetStats.isChilled)
+            totalDamage -= Mathf.RoundToInt(_targetStats.armor.GetValue() * .8f);
+        else
+            totalDamage -= _targetStats.armor.GetValue();
+
         totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
         return totalDamage;
     }
@@ -150,6 +205,9 @@ public class CharacterStats : MonoBehaviour
     private bool TargetCanAvoidAttack(CharacterStats _targetStats)
     {
         int totalEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
+
+        if(isShocked)
+            totalEvasion += 20;
 
         if (Random.Range(0, 100) < totalEvasion)
         {

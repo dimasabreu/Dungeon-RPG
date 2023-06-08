@@ -329,6 +329,15 @@ MonoBehaviour:
   vitality:
     baseValue: 0
     modifiers: 
+  damage:
+    baseValue: 5
+    modifiers: 
+  critChance:
+    baseValue: 0
+    modifiers: 
+  critPower:
+    baseValue: 0
+    modifiers: 
   maxHealth:
     baseValue: 1000
     modifiers: 
@@ -338,9 +347,21 @@ MonoBehaviour:
   evasion:
     baseValue: 0
     modifiers: 
-  damage:
-    baseValue: 5
+  magicResistance:
+    baseValue: 2
     modifiers: 
+  fireDamage:
+    baseValue: 0
+    modifiers: 
+  iceDamage:
+    baseValue: 0
+    modifiers: 
+  lightingDamage:
+    baseValue: 0
+    modifiers: 
+  isIgnited: 0
+  isChilled: 0
+  isShocked: 0
   currentHealth: 0
 --- !u!1 &448394533435527018
 GameObject:

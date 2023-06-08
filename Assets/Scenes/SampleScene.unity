@@ -13597,12 +13597,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5276624213423742894, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
-      propertyPath: armor.baseValue
+      propertyPath: iceDamage.baseValue
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5276624213423742894, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
-      propertyPath: magicResistance.baseValue
-      value: 2
+      propertyPath: fireDamage.baseValue
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3140d591a37946e4ab8800a07c667242, type: 3}
@@ -13662,12 +13662,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939102344695151837, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
+      propertyPath: iceDamage.baseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939102344695151837, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
       propertyPath: critChance.baseValue
-      value: 99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939102344695151837, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
       propertyPath: fireDamage.baseValue
-      value: 5
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939102344695151837, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
+      propertyPath: lightingDamage.baseValue
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
