@@ -48,7 +48,6 @@ public class CharacterStats : MonoBehaviour
         critPower.SetDefaultValue(150);
         currentHealth = GetMaxHealthValue();
 
-        Debug.Log("test 1");
     }
 
     protected virtual void Update() 
