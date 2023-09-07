@@ -13935,11 +13935,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 653640017248158567, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
       propertyPath: m_Color.g
-      value: 0.8449483
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 653640017248158567, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
       propertyPath: m_Color.r
-      value: 0.41960788
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939102344695151837, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
+      propertyPath: iceDamage.baseValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4939102344695151837, guid: 70e96c496b8ffd54797644b4b0fe8d22, type: 3}
       propertyPath: fireDamage.baseValue
